@@ -16,12 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+/*
     User::truncate();
     Category::truncate();
     Post::truncate();
+*/
+        $user=User::factory()->create([
+            'name' => 'john Doe'
+        ]);
 
+    Post::factory(5)->create([
+        'user_id'=>$user->id    
+    ]);
 
+/*
 
      $user = User::factory()->create();
   
@@ -69,5 +77,5 @@ class DatabaseSeeder extends Seeder
          'body'=>    '<p>Lorem Ipsum Dolaar Dolar Dolar Lorem Ipsum Dolaar Dolar Dolar Lorem Ipsum Dolaar Dolar Dolar Lorem Ipsum Dolaar Dolar Dolar</p>'
 
     ]);
-
+*/
 }   }
