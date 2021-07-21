@@ -1,0 +1,21 @@
+body
+{
+    background: navy;
+    background-color: rgb(164, 153, 175);
+    color: black;
+
+    max-width: 600px;
+    margin: auto;
+    font-family: sans-serif;
+    
+}
+
+p{
+    line-height: 1.7;
+}
+article + article{
+
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 3px solid black;
+}
