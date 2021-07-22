@@ -1,6 +1,7 @@
 
 <x-layout>
- 
+
+
 
     <section class="px-6 py-8">
        
@@ -41,7 +42,7 @@
                         </a>
 
                         <div class="space-x-2">
-                            <x-category-button :category="$post->category"/>
+                            <x-category-button :category="$post->category->slug"/>
                            
                         </div>
                     </div>
