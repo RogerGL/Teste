@@ -22,7 +22,8 @@ use function PHPSTORM_META\map;
 Route::get('/', function () {
 
 return view('posts', [
-  'posts' => Post::latest()->with('category','author')->get()  
+  'posts' => Post::latest()->get() ,
+  'categories' => Category::all()
 ]);
 
 //ddd($posts[0]->title);
@@ -67,13 +68,16 @@ Route::get('posts/{post}', function (Post $post){
 
 Route::get('categories/{category:slug}',function(Category $category){
   return view('post',[ 
-    'post'=> $category->posts
+    'post'=> $category->posts ,
+    'currentCategory' => $category,
+    'categories' => Category::all()
 ]);
 
 
 });
 Route::get('authors/{author}',function(User $author){
   return view('post',[ 
-    'post'=> $author->posts
+    'post'=> $author->posts, 
+    'categories' => Category::all()
 ]);
 });
