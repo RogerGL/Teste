@@ -21,11 +21,18 @@ use function PHPSTORM_META\map;
 
 Route::get('/', function () {
 
+  $posts = Post::latest();
+
+if (request('search')){
+  $posts->where('title','like','%'. request('search').'%');
+}
+
+
 return view('posts', [
-  'posts' => Post::latest()->get() ,
+  'posts' => $posts->get(),
   'categories' => Category::all()
 ]);
-
+})->name('home');
 //ddd($posts[0]->title);
  
 
@@ -40,7 +47,6 @@ $document= YamlFrontMatter::parseFile(
 
 */
 
-});
 
 Route::get('posts/{post}', function (Post $post){
   // Find a post by its slug and pass it to a view  
