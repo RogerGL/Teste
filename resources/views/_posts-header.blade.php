@@ -43,8 +43,8 @@
             </x-dropdown-item>
             @foreach ($categories as $category)
              
-            <x-dropdown-item href="/?category/{{ $category->slug }}"
-            :active="request()->is('categories/' . $category->slug)"
+            <x-dropdown-item href="/?category={{ $category->slug }}"
+            :active='request()->is("categories/{{$category->slug}}")'
             >
 
             {{ ucwords($category->name) }}
@@ -61,8 +61,8 @@
                 </x-dropdown>
 <!--
 
--->
-                <!-- Other Filters -->
+
+                <!-- Other Filters 
                 <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
                     <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
                         <option value="category" disabled selected>Other Filters
@@ -94,6 +94,7 @@
                                value="{{ request('search')}}"
                                >
                     </form>
+                
                 </div>
             </div>
         </header>

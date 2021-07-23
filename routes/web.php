@@ -40,6 +40,14 @@ $document= YamlFrontMatter::parseFile(
 
 
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
+
+
+Route::get('authors/{author:username}' , function (User $author){
+    return view('posts', [
+      'posts' => $author->posts,
+      'categories' => Category::all()
+    ]);
+}); 
   // Find a post by its slug and pass it to a view  
 
   /*  
