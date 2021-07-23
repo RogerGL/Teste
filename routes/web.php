@@ -55,19 +55,3 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
     return view('post',[ 'post' => $post ]);
   */
 
-
-Route::get('categories/{category:slug}',function(Category $category){
-  return view('post',[ 
-    'post'=> $category->posts ,
-    'currentCategory' => $category,
-    'categories' => Category::all()
-]);
-
-
-});
-Route::get('authors/{author:username}',function(User $author){
-  return view('post',[ 
-    'post'=> $author->posts, 
-    'categories' => Category::all()
-]);
-});
